@@ -1,5 +1,7 @@
 package spring.demo;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import spring.demo.discount.DiscountPolicy;
 import spring.demo.discount.FixDiscountPolicy;
 import spring.demo.repository.MemberRepository;
@@ -9,6 +11,7 @@ import spring.demo.service.MemberServiceImpl;
 import spring.demo.service.OrderService;
 import spring.demo.service.OrderServiceImpl;
 
+@Configuration //빈과함께사용 하고 단하나의 객체만 생성하도록함 (싱글톤)
 public class AppConfig {
 
 
@@ -22,20 +25,20 @@ public class AppConfig {
     public OrderService orderService(){
         return new OrderServiceImpl(new MemberRepositoryImpl(),new FixDiscountPolicy());
     }*/
-
+    @Bean //스프링 컨테이너에 빈으로 등록
      public MemberService memberService(){
         return new MemberServiceImpl(memberRepository());
     }
-
+    @Bean
     public MemberRepository memberRepository(){
          return new MemberRepositoryImpl();
     }
-
+    @Bean
     public OrderService orderService(){
         return new OrderServiceImpl(memberRepository(),discountPolicy());
     }
 
-
+    @Bean
     public DiscountPolicy discountPolicy(){
          return new FixDiscountPolicy();
     }
