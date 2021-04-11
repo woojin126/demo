@@ -1,5 +1,7 @@
 package spring.demo;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.demo.Member.Grade;
 import spring.demo.Member.Member;
 import spring.demo.service.MemberService;
@@ -14,8 +16,11 @@ public class MemberApp {
         System.out.println("new member = " + member.getName());
         System.out.println("find Member = " + findMember.getName());*/
 
-        AppConfig appConfig = new AppConfig();
-        MemberService memberService = appConfig.memberService();
+        // AppConfig appConfig = new AppConfig();
+        // MemberService memberService = appConfig.memberService();
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        MemberService memberService = ac.getBean("memberService", MemberService.class);
+
         Member member = new Member(1L,"woojin",Grade.VIP);
         memberService.join(member);
 
