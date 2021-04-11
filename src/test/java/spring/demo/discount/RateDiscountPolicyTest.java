@@ -13,7 +13,7 @@ import spring.demo.service.OrderServiceImpl;
 public class RateDiscountPolicyTest {
 
 
-    RateDiscountPolicy rateDiscountPolicy = new RateDiscountPolicy();
+    /*RateDiscountPolicy rateDiscountPolicy = new RateDiscountPolicy();
     MemberService memberService = new MemberServiceImpl();
     OrderService orderService = new OrderServiceImpl();
     @Test
@@ -36,6 +36,6 @@ public class RateDiscountPolicyTest {
         Member member = new Member(1L,"woojin2",Grade.BASIC);
         int discount =  rateDiscountPolicy.discount(member, 10000);
         Assertions.assertThat(discount).isEqualTo(0);
-    }
+    }*/
 }
 
