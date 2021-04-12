@@ -1,10 +1,12 @@
 package spring.demo.repository;
 
+import org.springframework.stereotype.Component;
 import spring.demo.Member.Member;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class MemberRepositoryImpl implements MemberRepository{
 
     private static Map<Long,Member> store = new HashMap<>();

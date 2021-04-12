@@ -1,7 +1,12 @@
 package spring.demo.discount;
 
+
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import spring.demo.Member.Grade;
 import spring.demo.Member.Member;
+
+@Component
 
 public class FixDiscountPolicy implements DiscountPolicy {
 

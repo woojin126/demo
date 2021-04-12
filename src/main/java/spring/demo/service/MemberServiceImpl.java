@@ -1,9 +1,12 @@
 package spring.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import spring.demo.Member.Member;
 import spring.demo.repository.MemberRepository;
 import spring.demo.repository.MemberRepositoryImpl;
 
+@Component
 public class MemberServiceImpl implements MemberService{
 
     /*이곳을보면 의존관계가 인터페이스뿐만 아니라 구현까지 의존해버림 */
@@ -13,9 +16,14 @@ public class MemberServiceImpl implements MemberService{
     * */
         private final MemberRepository memberRepository;
 
+        @Autowired
         public MemberServiceImpl(MemberRepository memberRepository){
             this.memberRepository=memberRepository;
         }
+
+    public MemberRepository getMemberRepository() { //검증용
+        return memberRepository;
+    }
 
     @Override
     public void join(Member member) {
