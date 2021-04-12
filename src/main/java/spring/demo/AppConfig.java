@@ -18,7 +18,7 @@ public class AppConfig {
     /*중복을 제거하고 역할에 따른 구현이 보이도록 리팩터링 해보자!
     * 이과정에서 new MemberRepositoryImp 중복이 제거되었다.
     * */
-   /* public MemberService memberService(){
+   /*public MemberService memberService(){
         return new MemberServiceImpl(new MemberRepositoryImpl());
     }
 
@@ -27,14 +27,17 @@ public class AppConfig {
     }*/
     @Bean //스프링 컨테이너에 빈으로 등록
      public MemberService memberService(){
+        System.out.println("memberService");
         return new MemberServiceImpl(memberRepository());
     }
     @Bean
     public MemberRepository memberRepository(){
+        System.out.println("memberRepository");
          return new MemberRepositoryImpl();
     }
     @Bean
     public OrderService orderService(){
+        System.out.println("orderService");
         return new OrderServiceImpl(memberRepository(),discountPolicy());
     }
 
