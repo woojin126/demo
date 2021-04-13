@@ -1,0 +1,21 @@
+package spring.demo.scan;
+
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import spring.demo.AutoAppConfig;
+import spring.demo.service.MemberService;
+import spring.demo.service.MemberServiceImpl;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class AutoAppConfigTest {
+
+    @Test
+    void basicScan(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
+        MemberService memberService = ac.getBean(MemberService.class);
+        assertThat(memberService).isInstanceOf(MemberService.class);
+    }
+}
