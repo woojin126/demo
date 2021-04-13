@@ -23,7 +23,9 @@ public class BeanLifeCycleTest {
 
         @Bean
         public NetworkClient networkClient(){
+            System.out.println("개체생성");
             NetworkClient networkClient = new NetworkClient();
+            System.out.println("개체생성끝");
             networkClient.setUrl("http://woojin");
             return networkClient;
         }
