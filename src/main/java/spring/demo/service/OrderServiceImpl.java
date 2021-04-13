@@ -13,7 +13,7 @@ import spring.demo.repository.MemberRepositoryImpl;
 
 @Component
 public class OrderServiceImpl implements OrderService{
-
+//테스트
   /*  private final MemberRepository memberRepository = new
             MemberRepositoryImpl();
   */  /*1.역할과 구현을 분리함
